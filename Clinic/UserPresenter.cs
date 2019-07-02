@@ -30,7 +30,8 @@ namespace Clinic
 
         public void AddUser()
         {
-            model.AddUserToDatabase(user.UserName, user.UserSurname, user.UserPesel, user.UserTelephone);
+            model.AddUserToDatabase(user, view.FormControl);
+            
         }
     }
 }

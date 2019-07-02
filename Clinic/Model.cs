@@ -31,8 +31,13 @@ namespace Clinic
             User.GetInstance.BringToFront();
         }
 
-        public void AddUserToDatabase(String name, String surname, String pesel, String telephone)
+        public void AddUserToDatabase(IUser user, Control.ControlCollection FormControls)
         {
+            String name = user.UserName;
+            String surname = user.UserSurname;
+            String pesel = user.UserPesel;
+            String telephone = user.UserTelephone;
+
             using (MySqlConnection conn = DatabaseConnection.Connection())
             {
                 try
@@ -41,6 +46,11 @@ namespace Clinic
                     using (MySqlCommand command = new MySqlCommand($"INSERT INTO pacjenci VALUES('', '{name}', '{surname}', '{pesel}', '{telephone}')", conn))
                     {
                         command.ExecuteNonQuery();
+                        user.UserName = "";
+                        user.UserSurname = "";
+                        user.UserPesel = "";
+                        user.UserTelephone = "";
+                        this.ShowDispayMenu(FormControls);
                     }
                     conn.Close();
                 }
