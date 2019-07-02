@@ -70,5 +70,36 @@ namespace Clinic
                 }
             }
         }
+
+        public string[] GetUsers()
+        {
+            List<String> Users = new List<String>();
+            using (MySqlConnection conn = DatabaseConnection.Connection())
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand command = new MySqlCommand($"SELECT imie, nazwisko FROM `lekarze`", conn))
+                    {
+                        using (var dataReader = command.ExecuteReader())
+                        {
+                            while (dataReader.Read())
+                            {
+                                var name = dataReader["imie"];
+                                var surname = dataReader["nazwisko"];
+                                Users.Add(name + ", " + surname);
+                            }
+                        }
+                    }
+                    conn.Close();
+                    return Users.ToArray();
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine("ERROR: " + exc.Message);
+                }
+            }
+            return null;
+        }
     }
 }

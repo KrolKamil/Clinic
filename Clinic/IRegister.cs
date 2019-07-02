@@ -10,5 +10,8 @@ namespace Clinic
     {
         event Action ReturnBtnClicked;
         event Action ConfirmClicked;
+
+        string[] Users { set; }
+        string SelectedUser { get; }
     }
 }

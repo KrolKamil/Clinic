@@ -18,7 +18,14 @@ namespace Clinic
             this.model = model;
             this.register = register;
 
+            this.LoadUsers();
+
             this.register.ReturnBtnClicked += BackToMenu;
+        }
+
+        public void LoadUsers()
+        {
+            this.register.Users = this.model.GetUsers();
         }
 
         public void BackToMenu()

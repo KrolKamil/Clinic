@@ -17,6 +17,24 @@ namespace Clinic
         public event Action ReturnBtnClicked;
         public event Action ConfirmClicked;
 
+
+        public string[] Users
+        {
+            set
+            {
+                if(value != null)
+                {
+                    foreach (var d in value)
+                        user_box.Items.Add(d);
+                }
+            }
+        }
+
+        public string SelectedUser
+        {
+            get { return user_box.GetItemText(user_box.SelectedItem); }
+        }
+
         public Register()
         {
             InitializeComponent();
