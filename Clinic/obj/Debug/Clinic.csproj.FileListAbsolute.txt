@@ -16,3 +16,4 @@ C:\Users\Kamil\Desktop\Projekt\Clinic\Clinic\obj\Debug\Clinic.pdb
 C:\Users\Kamil\Desktop\Projekt\Clinic\Clinic\obj\Debug\Clinic.Form1.resources
 C:\Users\Kamil\Desktop\Projekt\Clinic\Clinic\obj\Debug\Clinic.User.resources
 C:\Users\Kamil\Desktop\Projekt\Clinic\Clinic\obj\Debug\Clinic.DisplayMenu.resources
+C:\Users\Kamil\Desktop\Projekt\Clinic\Clinic\obj\Debug\Clinic.Register.resources

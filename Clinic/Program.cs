@@ -22,7 +22,9 @@ namespace Clinic
             IView view = new Form1();
             IDisplayMenu displayMenu = DisplayMenu.GetInstance;
             IUser user = User.GetInstance;
+            IRegister register = Register.GetInstance;
 
+            RegisterPresenter RegisterPresenter = new RegisterPresenter(view, model, register);
             UserPresenter UserPresenter = new UserPresenter(view, model, user);
             Presenter presenter = new Presenter(view, model, displayMenu);
 

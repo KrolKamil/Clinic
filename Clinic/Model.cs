@@ -21,6 +21,16 @@ namespace Clinic
             DisplayMenu.GetInstance.BringToFront();
         }
 
+        public void ShowRegister(Control.ControlCollection FormControls)
+        {
+            if (!FormControls.Contains(Register.GetInstance))
+            {
+                FormControls.Add(Register.GetInstance);
+                Register.GetInstance.Dock = DockStyle.Fill;
+            }
+            Register.GetInstance.BringToFront();
+        }
+
         public void ShowUser(Control.ControlCollection FormControls)
         {
             if (!FormControls.Contains(User.GetInstance))

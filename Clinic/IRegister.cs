@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Clinic
 {
-    interface IDisplayMenu
+    interface IRegister
     {
-        event Action NewPatientBtnClicked;
-        event Action RegisterBtnClicked;
+        event Action ReturnBtnClicked;
+        event Action ConfirmClicked;
     }
 }

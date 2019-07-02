@@ -39,7 +39,7 @@
             this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.title.Location = new System.Drawing.Point(19, 18);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(346, 39);
+            this.title.Size = new System.Drawing.Size(334, 38);
             this.title.TabIndex = 0;
             this.title.Text = "Menedżer Przychodni";
             // 
@@ -61,6 +61,7 @@
             this.patient_registration_btn.TabIndex = 2;
             this.patient_registration_btn.Text = "Zarejestruj Pacjenta";
             this.patient_registration_btn.UseVisualStyleBackColor = true;
+            this.patient_registration_btn.Click += new System.EventHandler(this.patient_registration_btn_Click);
             // 
             // DisplayMenu
             // 

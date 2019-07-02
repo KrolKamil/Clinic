@@ -13,6 +13,7 @@ namespace Clinic
     public partial class DisplayMenu : UserControl, IDisplayMenu
     {
         public event Action NewPatientBtnClicked;
+        public event Action RegisterBtnClicked;
 
         private static DisplayMenu instance;
         public static DisplayMenu GetInstance
@@ -33,6 +34,14 @@ namespace Clinic
             if(NewPatientBtnClicked != null)
             {
                 NewPatientBtnClicked();
+            }
+        }
+
+        private void patient_registration_btn_Click(object sender, EventArgs e)
+        {
+            if(RegisterBtnClicked != null)
+            {
+                RegisterBtnClicked();
             }
         }
     }
