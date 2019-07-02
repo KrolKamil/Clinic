@@ -17,10 +17,13 @@ namespace Clinic
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            IView view = new Form1();
             Model model = new Model();
-            IDisplayMenu displayMenu = DisplayMenu.GetInstance;
 
+            IView view = new Form1();
+            IDisplayMenu displayMenu = DisplayMenu.GetInstance;
+            IUser user = User.GetInstance;
+
+            UserPresenter UserPresenter = new UserPresenter(view, model, user);
             Presenter presenter = new Presenter(view, model, displayMenu);
 
             Application.Run((Form1)view);

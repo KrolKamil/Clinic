@@ -79,6 +79,7 @@
     <Compile Include="User.Designer.cs">
       <DependentUpon>User.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserPresenter.cs" />
     <EmbeddedResource Include="DatabaseConfiguration.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DatabaseConfiguration.Designer.cs</LastGenOutput>

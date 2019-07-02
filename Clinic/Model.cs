@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using MySql.Data.MySqlClient;
 
 namespace Clinic
 {
@@ -28,6 +29,26 @@ namespace Clinic
                 User.GetInstance.Dock = DockStyle.Fill;
             }
             User.GetInstance.BringToFront();
+        }
+
+        public void AddUserToDatabase(String name, String surname, String pesel, String telephone)
+        {
+            using (MySqlConnection conn = DatabaseConnection.Connection())
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand command = new MySqlCommand($"INSERT INTO pacjenci VALUES('', '{name}', '{surname}', '{pesel}', '{telephone}')", conn))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    conn.Close();
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine("ERROR: " + exc.Message);
+                }
+            }
         }
     }
 }

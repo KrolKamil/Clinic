@@ -124,7 +124,7 @@
     <value />
   </data>
   <data name="port" xml:space="preserve">
-    <value>80</value>
+    <value>3306</value>
   </data>
   <data name="server" xml:space="preserve">
     <value>localhost</value>

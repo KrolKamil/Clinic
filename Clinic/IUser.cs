@@ -8,5 +8,12 @@ namespace Clinic
 {
     interface IUser
     {
+        event Action ReturnBtnClicked;
+        event Action ConfirmClicked;
+
+        String UserName { get; set; }
+        String UserSurname { get; set; }
+        String UserPesel { get; set; }
+        String UserTelephone { get; set; }
     }
 }

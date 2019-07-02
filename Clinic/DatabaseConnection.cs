@@ -14,7 +14,7 @@ namespace Clinic
             MySqlConnectionStringBuilder connectionStringBuilder = new MySqlConnectionStringBuilder();
 
             connectionStringBuilder.Port = uint.Parse(DatabaseConfiguration.port);
-            connectionStringBuilder.Server = DatabaseConfiguration.database;
+            connectionStringBuilder.Server = DatabaseConfiguration.server;
             connectionStringBuilder.UserID = DatabaseConfiguration.user;
             connectionStringBuilder.Password = DatabaseConfiguration.password;
             connectionStringBuilder.Database = DatabaseConfiguration.database;

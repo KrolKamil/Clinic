@@ -79,7 +79,7 @@ namespace Clinic {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 80.
+        ///   Looks up a localized string similar to 3306.
         /// </summary>
         internal static string port {
             get {
