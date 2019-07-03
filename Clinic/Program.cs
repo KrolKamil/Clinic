@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Clinic
 {
@@ -27,6 +28,8 @@ namespace Clinic
             RegisterPresenter RegisterPresenter = new RegisterPresenter(view, model, register);
             UserPresenter UserPresenter = new UserPresenter(view, model, user);
             Presenter presenter = new Presenter(view, model, displayMenu);
+
+            Debug.WriteLine(DateTime.Now);
 
             Application.Run((Form1)view);
         }

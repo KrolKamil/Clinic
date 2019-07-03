@@ -22,10 +22,16 @@ namespace Clinic
             this.LoadUsers();
             this.LoadDoctors();
             this.LoadSpecialisations();
+            this.LoadDates();
 
             this.register.ReturnBtnClicked += BackToMenu;
             this.register.ConfirmClicked += Test;
             this.register.SpecialisationChanged += LoadDoctorsWithSpecialisations;
+        }
+
+        public void LoadDates()
+        {
+            this.register.Dates = this.model.GetDates();
         }
 
         public void LoadDoctorsWithSpecialisations()

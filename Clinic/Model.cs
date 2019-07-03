@@ -217,5 +217,26 @@ namespace Clinic
             return null;
         }
 
+        public List<DateTime> GetDates()
+        {
+            List<DateTime> dateTimes = new List<DateTime>();
+
+            DateTime dateTimeHelper = TimeRoundUp(DateTime.Now);
+
+            while( (8 <= dateTimeHelper.Hour) && (dateTimeHelper.Hour <= 16) )
+            {
+                dateTimes.Add(dateTimeHelper);
+                dateTimeHelper.AddMinutes(30);
+            }
+
+            return dateTimes;
+        }
+
+        public DateTime TimeRoundUp(DateTime input)
+        {
+            return new DateTime(input.Year, input.Month, input.Day, input.Hour, input.Minute, 0)
+                .AddMinutes(input.Minute % 30 == 0 ? 0 : 30 - input.Minute % 30);
+        }
+
     }
 }

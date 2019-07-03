@@ -12,6 +12,22 @@ namespace Clinic
 {
     public partial class Register : UserControl, IRegister
     {
+        public List<DateTime> Dates
+        {
+            set
+            {
+                this.date_box.DataSource = value;
+            }
+        }
+
+        public DateTime SelectedDate
+        {
+            get
+            {
+                return (DateTime)this.date_box.SelectedItem;
+            }
+        }
+
         private static Register instance;
 
         public event Action ReturnBtnClicked;

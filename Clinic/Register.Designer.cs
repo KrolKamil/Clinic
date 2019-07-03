@@ -37,7 +37,7 @@
             this.doctor_box = new System.Windows.Forms.ListBox();
             this.back_btn = new System.Windows.Forms.Button();
             this.add_btn = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.date_box = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -84,9 +84,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(293, 63);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(270, 60);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 17);
+            this.label4.Size = new System.Drawing.Size(108, 20);
             this.label4.TabIndex = 4;
             this.label4.Text = "Specjalizacje";
             // 
@@ -128,14 +129,14 @@
             this.add_btn.UseVisualStyleBackColor = true;
             this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
             // 
-            // listBox1
+            // date_box
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(208, 338);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(170, 164);
-            this.listBox1.TabIndex = 9;
+            this.date_box.FormattingEnabled = true;
+            this.date_box.ItemHeight = 16;
+            this.date_box.Location = new System.Drawing.Point(208, 338);
+            this.date_box.Name = "date_box";
+            this.date_box.Size = new System.Drawing.Size(170, 164);
+            this.date_box.TabIndex = 9;
             // 
             // label5
             // 
@@ -152,7 +153,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.date_box);
             this.Controls.Add(this.add_btn);
             this.Controls.Add(this.back_btn);
             this.Controls.Add(this.doctor_box);
@@ -180,7 +181,7 @@
         private System.Windows.Forms.ListBox doctor_box;
         private System.Windows.Forms.Button back_btn;
         private System.Windows.Forms.Button add_btn;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox date_box;
         private System.Windows.Forms.Label label5;
     }
 }

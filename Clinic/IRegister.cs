@@ -20,5 +20,8 @@ namespace Clinic
 
         Dictionary<int, string> Specialisations { set; }
         int SelectedSpecialisation { get; }
+
+        List<DateTime> Dates { set; }
+        DateTime SelectedDate { get; }
     }
 }
