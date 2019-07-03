@@ -120,11 +120,11 @@ namespace Clinic
                         {
                             while (dataReader.Read())
                             {
-                                int id_p = (int)dataReader["id_l"];
+                                int id_l = (int)dataReader["id_l"];
                                 var name = dataReader["imie"];
                                 var surname = dataReader["nazwisko"];
 
-                                Doctors.Add(id_p, name + ", " + surname);
+                                Doctors.Add(id_l, name + ", " + surname);
                             }
                         }
                     }
@@ -139,6 +139,40 @@ namespace Clinic
             return null;
         }
 
+
+
+        public Dictionary<int, string> GetSpecialisations()
+        {
+            //List<String> Users = new List<String>();
+            Dictionary<int, string> Specialisations = new Dictionary<int, string>();
+            using (MySqlConnection conn = DatabaseConnection.Connection())
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand command = new MySqlCommand($"SELECT id_s, nazwa FROM `specjalizacje`", conn))
+                    {
+                        using (var dataReader = command.ExecuteReader())
+                        {
+                            while (dataReader.Read())
+                            {
+                                int id_s = (int)dataReader["id_s"];
+                                var name = dataReader["nazwa"];
+
+                                Specialisations.Add(id_s, (string)name);
+                            }
+                        }
+                    }
+                    conn.Close();
+                    return Specialisations;
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine("ERROR: " + exc.Message);
+                }
+            }
+            return null;
+        }
 
     }
 }

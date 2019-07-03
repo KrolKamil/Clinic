@@ -16,5 +16,8 @@ namespace Clinic
 
         Dictionary<int, string> Doctors { set; }
         int SelectedDoctor { get; }
+
+        Dictionary<int, string> Specialisations { set; }
+        int SelectedSpecialisation { get; }
     }
 }

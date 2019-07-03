@@ -18,6 +18,24 @@ namespace Clinic
         public event Action ConfirmClicked;
 
 
+        public Dictionary<int, string> Specialisations
+        {
+            set
+            {
+                this.specialisations_comboBox.DataSource = new BindingSource(value, null);
+                this.specialisations_comboBox.DisplayMember = "Value";
+                this.specialisations_comboBox.ValueMember = "Key";
+            }
+        }
+
+        public int SelectedSpecialisation
+        {
+            get
+            {
+                return (int)specialisations_comboBox.SelectedValue;
+            }
+        }
+
         public Dictionary<int, string> Users
         {
             set

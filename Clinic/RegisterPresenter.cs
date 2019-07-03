@@ -21,6 +21,7 @@ namespace Clinic
 
             this.LoadUsers();
             this.LoadDoctors();
+            this.LoadSpecialisations();
 
             this.register.ReturnBtnClicked += BackToMenu;
             this.register.ConfirmClicked += Test;
@@ -29,6 +30,11 @@ namespace Clinic
         public void Test()
         {
             Debug.WriteLine(this.register.SelectedUser);
+        }
+
+        public void LoadSpecialisations()
+        {
+            this.register.Specialisations = this.model.GetSpecialisations();
         }
 
         public void LoadUsers()

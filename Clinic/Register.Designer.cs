@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.specialisations_comboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.user_box = new System.Windows.Forms.ListBox();
             this.doctor_box = new System.Windows.Forms.ListBox();
@@ -45,7 +45,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(29, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(330, 39);
+            this.label1.Size = new System.Drawing.Size(317, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "Rejestracja Pacjenta";
             // 
@@ -69,14 +69,14 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Lekarze";
             // 
-            // comboBox1
+            // specialisations_comboBox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(257, 103);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 3;
+            this.specialisations_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.specialisations_comboBox.FormattingEnabled = true;
+            this.specialisations_comboBox.Location = new System.Drawing.Point(257, 103);
+            this.specialisations_comboBox.Name = "specialisations_comboBox";
+            this.specialisations_comboBox.Size = new System.Drawing.Size(121, 24);
+            this.specialisations_comboBox.TabIndex = 3;
             // 
             // label4
             // 
@@ -134,7 +134,7 @@
             this.Controls.Add(this.doctor_box);
             this.Controls.Add(this.user_box);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.specialisations_comboBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -150,7 +150,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox specialisations_comboBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox user_box;
         private System.Windows.Forms.ListBox doctor_box;
