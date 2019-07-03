@@ -217,6 +217,53 @@ namespace Clinic
             return null;
         }
 
+        public List<DateTime> GetDoctorAvailableDates(int id_l)
+        {
+            List<DateTime> allDates = GetDates();
+            List<DateTime> busyHours = GetDoctorDates(id_l);
+
+            foreach (var element in busyHours)
+            {
+                allDates.Remove(element);
+            }
+
+            if (allDates.Count > 0)
+                return allDates;
+
+            return null;
+        }
+
+        public List<DateTime> GetDoctorDates(int id_l)
+        {
+            List<DateTime> doctorDates = new List<DateTime>();
+
+            using (MySqlConnection conn = DatabaseConnection.Connection())
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand command = new MySqlCommand($"SELECT data FROM `umowienia` WHERE id_l = {id_l};", conn))
+                    {
+                        using (var dataReader = command.ExecuteReader())
+                        {
+                            while (dataReader.Read())
+                            {
+                                DateTime doctorDate = (DateTime)dataReader["data"];
+                                doctorDates.Add(doctorDate);
+                            }
+                        }
+                    }
+                    conn.Close();
+                    return doctorDates;
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine("ERROR: " + exc.Message);
+                }
+            }
+            return null;
+        }
+
         public List<DateTime> GetDates()
         {
             List<DateTime> dateTimes = new List<DateTime>();
@@ -231,7 +278,6 @@ namespace Clinic
                 {
                     dateTimes.Add(dateTimeHelper);
                     dateTimeHelper = dateTimeHelper.AddMinutes(30);
-                    dateTimeHelper = SetValidDate(dateTimeHelper);
                 }
 
                 dateTimeHelper = setNextDay(dateTimeHelper);
