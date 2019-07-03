@@ -222,36 +222,32 @@ namespace Clinic
             List<DateTime> dateTimes = new List<DateTime>();
 
             DateTime dateTimeHelper = SetValidDate(DateTime.Now);
+            DateTime nowDate = DateTime.Now;
+            DateTime endDay = nowDate.AddDays(7);
 
-            while( (8 <= dateTimeHelper.Hour) && (dateTimeHelper.Hour <= 16) )
+            while(dateTimeHelper.Date < endDay)
             {
-                dateTimes.Add(dateTimeHelper);
-                dateTimeHelper = dateTimeHelper.AddMinutes(30);
-                dateTimeHelper = SetValidDate(dateTimeHelper);
-            }
+                while ((8 <= dateTimeHelper.Hour) && (dateTimeHelper.Hour <= 16))
+                {
+                    dateTimes.Add(dateTimeHelper);
+                    dateTimeHelper = dateTimeHelper.AddMinutes(30);
+                    dateTimeHelper = SetValidDate(dateTimeHelper);
+                }
 
+                dateTimeHelper = setNextDay(dateTimeHelper);
+
+            }
             return dateTimes;
+        }
+
+        public DateTime setNextDay(DateTime input)
+        {
+            return new DateTime(input.Year, input.Month, input.Day, 8, input.Minute, 0).AddDays(1);
         }
 
         public DateTime SetValidDate(DateTime input)
         {
-            DateTime dT;
-
-           dT = new DateTime(input.Year, input.Month, input.Day, input.Hour, input.Minute, 0).AddMinutes(input.Minute % 30 == 0 ? 0 : 30 - input.Minute % 30);
-            return dT;
-
-            //if (input.Minute < 30)
-            //{
-            //    dT = new DateTime(input.Year, input.Month, input.Day, input.Hour, input.Minute, 0)
-            //    .AddMinutes(input.Minute % 30 == 0 ? 0 : 30 - input.Minute % 30);
-            //}
-            //else
-            //{
-            //    dT = new DateTime(input.Year, input.Month, input.Day, input.Hour, input.Minute, 0).AddMinutes(-input.Minute % 30);
-            //    dT.AddHours(1);
-            //}
-
-            return dT;
+           return new DateTime(input.Year, input.Month, input.Day, input.Hour, input.Minute, 0).AddMinutes(input.Minute % 30 == 0 ? 0 : 30 - input.Minute % 30);
         }
 
     }
