@@ -222,14 +222,15 @@ namespace Clinic
             int userId = register.SelectedUser;
             int doctorId = register.SelectedDoctor;
             DateTime visitDate = (DateTime)register.SelectedDate;
-             if(visitDate != null)
+            //DateTime visitDate = DateTime.Now;
+            if (visitDate != null)
             {
                 using (MySqlConnection conn = DatabaseConnection.Connection())
                 {
                     try
                     {
                         conn.Open();
-                        using (MySqlCommand command = new MySqlCommand($"INSERT INTO `umowienia` VALUES('', {visitDate}, {doctorId}, {userId} )", conn))
+                        using (MySqlCommand command = new MySqlCommand($"INSERT INTO `umowienia` VALUES('', '{visitDate}', '{doctorId}', '{userId}' )", conn))
                         {
                             command.ExecuteNonQuery();
                             this.ShowDispayMenu(view.FormControl);
@@ -249,10 +250,12 @@ namespace Clinic
         {
             List<DateTime> allDates = GetDates();
             List<DateTime> busyDates = GetDoctorDates(id_l);
-
-            foreach (var element in busyDates)
+            if(busyDates != null)
             {
-                allDates.Remove(element);
+                foreach (var element in busyDates)
+                {
+                    allDates.Remove(element);
+                }
             }
 
             if (allDates.Count > 0)
