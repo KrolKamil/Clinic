@@ -131,15 +131,15 @@ namespace Clinic
 
         private void doctor_box_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (DoctorSelected != null)
+            {
+                DoctorSelected();
+            }
         }
 
         private void date_box_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(DoctorSelected != null)
-            {
-                DoctorSelected();
-            }
+
         }
     }
 }

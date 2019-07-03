@@ -23,6 +23,7 @@ namespace Clinic
             this.LoadDoctors();
             this.LoadSpecialisations();
             this.LoadDates();
+            //this.LoadDates();
 
             this.register.ReturnBtnClicked += BackToMenu;
             this.register.ConfirmClicked += Test;
