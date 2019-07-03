@@ -221,21 +221,37 @@ namespace Clinic
         {
             List<DateTime> dateTimes = new List<DateTime>();
 
-            DateTime dateTimeHelper = TimeRoundUp(DateTime.Now);
+            DateTime dateTimeHelper = SetValidDate(DateTime.Now);
 
             while( (8 <= dateTimeHelper.Hour) && (dateTimeHelper.Hour <= 16) )
             {
                 dateTimes.Add(dateTimeHelper);
-                dateTimeHelper.AddMinutes(30);
+                dateTimeHelper = dateTimeHelper.AddMinutes(30);
+                dateTimeHelper = SetValidDate(dateTimeHelper);
             }
 
             return dateTimes;
         }
 
-        public DateTime TimeRoundUp(DateTime input)
+        public DateTime SetValidDate(DateTime input)
         {
-            return new DateTime(input.Year, input.Month, input.Day, input.Hour, input.Minute, 0)
-                .AddMinutes(input.Minute % 30 == 0 ? 0 : 30 - input.Minute % 30);
+            DateTime dT;
+
+           dT = new DateTime(input.Year, input.Month, input.Day, input.Hour, input.Minute, 0).AddMinutes(input.Minute % 30 == 0 ? 0 : 30 - input.Minute % 30);
+            return dT;
+
+            //if (input.Minute < 30)
+            //{
+            //    dT = new DateTime(input.Year, input.Month, input.Day, input.Hour, input.Minute, 0)
+            //    .AddMinutes(input.Minute % 30 == 0 ? 0 : 30 - input.Minute % 30);
+            //}
+            //else
+            //{
+            //    dT = new DateTime(input.Year, input.Month, input.Day, input.Hour, input.Minute, 0).AddMinutes(-input.Minute % 30);
+            //    dT.AddHours(1);
+            //}
+
+            return dT;
         }
 
     }
