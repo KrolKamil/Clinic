@@ -25,6 +25,13 @@ namespace Clinic
 
             this.register.ReturnBtnClicked += BackToMenu;
             this.register.ConfirmClicked += Test;
+            this.register.SpecialisationChanged += LoadDoctorsWithSpecialisations;
+        }
+
+        public void LoadDoctorsWithSpecialisations()
+        {
+            int specialisation = this.register.SelectedSpecialisation;
+            this.register.Doctors = this.model.GetDoctorsWithSpecialisations(specialisation);
         }
 
         public void Test()

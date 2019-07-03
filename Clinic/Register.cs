@@ -16,7 +16,7 @@ namespace Clinic
 
         public event Action ReturnBtnClicked;
         public event Action ConfirmClicked;
-
+        public event Action SpecialisationChanged;
 
         public Dictionary<int, string> Specialisations
         {
@@ -55,7 +55,11 @@ namespace Clinic
         {
             set
             {
-                doctor_box.Items.Clear();
+                //this.doctor_box.DataSource = null;
+                if(value.Count == 0)
+                {
+                    this.doctor_box.DataSource = null;
+                }
                 this.doctor_box.DataSource = new BindingSource(value, null);
                 this.doctor_box.DisplayMember = "Value";
                 this.doctor_box.ValueMember = "Key";
@@ -94,6 +98,14 @@ namespace Clinic
             if (ConfirmClicked != null)
             {
                 ConfirmClicked();
+            }
+        }
+
+        private void specialisations_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(SpecialisationChanged != null)
+            {
+                SpecialisationChanged();
             }
         }
     }

@@ -10,6 +10,7 @@ namespace Clinic
     {
         event Action ReturnBtnClicked;
         event Action ConfirmClicked;
+        event Action SpecialisationChanged;
 
         Dictionary<int, string> Users { set; }
         int SelectedUser { get; }

@@ -145,6 +145,7 @@ namespace Clinic
         {
             //List<String> Users = new List<String>();
             Dictionary<int, string> Specialisations = new Dictionary<int, string>();
+            Specialisations.Add(0, "brak");
             using (MySqlConnection conn = DatabaseConnection.Connection())
             {
                 try
@@ -165,6 +166,48 @@ namespace Clinic
                     }
                     conn.Close();
                     return Specialisations;
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine("ERROR: " + exc.Message);
+                }
+            }
+            return null;
+        }
+
+        public Dictionary<int, string> GetDoctorsWithSpecialisations(int id_s)
+        {
+            if(id_s == 0)
+            {
+                return GetDoctors();
+            }
+            //List<String> Users = new List<String>();
+            Dictionary<int, string> Doctors = new Dictionary<int, string>();
+            using (MySqlConnection conn = DatabaseConnection.Connection())
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand command = new MySqlCommand(
+                        $"SELECT lekarze.id_l, imie, nazwisko FROM `lekarze`" +
+                        $" JOIN `posiadaja` ON lekarze.id_l = posiadaja.id_l" +
+                        $" JOIN `specjalizacje` ON specjalizacje.id_s = posiadaja.id_s" +
+                        $" WHERE specjalizacje.id_s = {id_s} ", conn))
+                    {
+                        using (var dataReader = command.ExecuteReader())
+                        {
+                            while (dataReader.Read())
+                            {
+                                int id_l = (int)dataReader["id_l"];
+                                var name = dataReader["imie"];
+                                var surname = dataReader["nazwisko"];
+
+                                Doctors.Add(id_l, name + ", " + surname);
+                            }
+                        }
+                    }
+                    conn.Close();
+                    return Doctors;
                 }
                 catch (Exception exc)
                 {

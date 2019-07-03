@@ -77,6 +77,7 @@
             this.specialisations_comboBox.Name = "specialisations_comboBox";
             this.specialisations_comboBox.Size = new System.Drawing.Size(121, 24);
             this.specialisations_comboBox.TabIndex = 3;
+            this.specialisations_comboBox.SelectedIndexChanged += new System.EventHandler(this.specialisations_comboBox_SelectedIndexChanged);
             // 
             // label4
             // 
