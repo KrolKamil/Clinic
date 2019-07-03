@@ -108,6 +108,7 @@
             this.doctor_box.Name = "doctor_box";
             this.doctor_box.Size = new System.Drawing.Size(170, 164);
             this.doctor_box.TabIndex = 6;
+            this.doctor_box.SelectedIndexChanged += new System.EventHandler(this.doctor_box_SelectedIndexChanged);
             // 
             // back_btn
             // 
@@ -137,6 +138,7 @@
             this.date_box.Name = "date_box";
             this.date_box.Size = new System.Drawing.Size(170, 164);
             this.date_box.TabIndex = 9;
+            this.date_box.SelectedIndexChanged += new System.EventHandler(this.date_box_SelectedIndexChanged);
             // 
             // label5
             // 

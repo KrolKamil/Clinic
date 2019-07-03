@@ -220,9 +220,9 @@ namespace Clinic
         public List<DateTime> GetDoctorAvailableDates(int id_l)
         {
             List<DateTime> allDates = GetDates();
-            List<DateTime> busyHours = GetDoctorDates(id_l);
+            List<DateTime> busyDates = GetDoctorDates(id_l);
 
-            foreach (var element in busyHours)
+            foreach (var element in busyDates)
             {
                 allDates.Remove(element);
             }

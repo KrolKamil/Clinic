@@ -27,6 +27,12 @@ namespace Clinic
             this.register.ReturnBtnClicked += BackToMenu;
             this.register.ConfirmClicked += Test;
             this.register.SpecialisationChanged += LoadDoctorsWithSpecialisations;
+            this.register.DoctorSelected += LoadDoctorDates;
+        }
+
+        public void LoadDoctorDates()
+        {
+            this.register.Dates = this.model.GetDoctorAvailableDates(this.register.SelectedDoctor);
         }
 
         public void LoadDates()

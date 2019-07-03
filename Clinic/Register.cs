@@ -33,6 +33,7 @@ namespace Clinic
         public event Action ReturnBtnClicked;
         public event Action ConfirmClicked;
         public event Action SpecialisationChanged;
+        public event Action DoctorSelected;
 
         public Dictionary<int, string> Specialisations
         {
@@ -125,6 +126,19 @@ namespace Clinic
             if(SpecialisationChanged != null)
             {
                 SpecialisationChanged();
+            }
+        }
+
+        private void doctor_box_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void date_box_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(DoctorSelected != null)
+            {
+                DoctorSelected();
             }
         }
     }
