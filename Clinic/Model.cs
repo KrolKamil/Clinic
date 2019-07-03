@@ -217,6 +217,34 @@ namespace Clinic
             return null;
         }
 
+        public void RegisterUser(IRegister register, IView view)
+        {
+            int userId = register.SelectedUser;
+            int doctorId = register.SelectedDoctor;
+            DateTime visitDate = (DateTime)register.SelectedDate;
+             if(visitDate != null)
+            {
+                using (MySqlConnection conn = DatabaseConnection.Connection())
+                {
+                    try
+                    {
+                        conn.Open();
+                        using (MySqlCommand command = new MySqlCommand($"INSERT INTO `umowienia` VALUES('', {visitDate}, {doctorId}, {userId} )", conn))
+                        {
+                            command.ExecuteNonQuery();
+                            this.ShowDispayMenu(view.FormControl);
+                        }
+                        conn.Close();
+                    }
+                    catch (Exception exc)
+                    {
+                        Console.WriteLine("ERROR: " + exc.Message);
+                    }
+                }
+            }
+            
+        }
+
         public List<DateTime> GetDoctorAvailableDates(int id_l)
         {
             List<DateTime> allDates = GetDates();

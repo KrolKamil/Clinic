@@ -26,9 +26,14 @@ namespace Clinic
             //this.LoadDates();
 
             this.register.ReturnBtnClicked += BackToMenu;
-            this.register.ConfirmClicked += Test;
+            this.register.ConfirmClicked += RegisterUser;
             this.register.SpecialisationChanged += LoadDoctorsWithSpecialisations;
             this.register.DoctorSelected += LoadDoctorDates;
+        }
+
+        public void RegisterUser()
+        {
+            this.model.RegisterUser(this.register, this.view);
         }
 
         public void LoadDoctorDates()
@@ -45,11 +50,6 @@ namespace Clinic
         {
             int specialisation = this.register.SelectedSpecialisation;
             this.register.Doctors = this.model.GetDoctorsWithSpecialisations(specialisation);
-        }
-
-        public void Test()
-        {
-            Debug.WriteLine(this.register.SelectedUser);
         }
 
         public void LoadSpecialisations()
