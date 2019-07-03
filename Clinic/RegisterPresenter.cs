@@ -20,6 +20,7 @@ namespace Clinic
             this.register = register;
 
             this.LoadUsers();
+            this.LoadDoctors();
 
             this.register.ReturnBtnClicked += BackToMenu;
             this.register.ConfirmClicked += Test;
@@ -33,6 +34,11 @@ namespace Clinic
         public void LoadUsers()
         {
             this.register.Users = this.model.GetUsers();
+        }
+
+        public void LoadDoctors()
+        {
+            this.register.Doctors = this.model.GetDoctors();
         }
 
         public void BackToMenu()

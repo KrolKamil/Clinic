@@ -13,5 +13,8 @@ namespace Clinic
 
         Dictionary<int, string> Users { set; }
         int SelectedUser { get; }
+
+        Dictionary<int, string> Doctors { set; }
+        int SelectedDoctor { get; }
     }
 }

@@ -105,28 +105,31 @@ namespace Clinic
             return null;
         }
 
-        public string[] GetDoctors()
+        public Dictionary<int, string> GetDoctors()
         {
-            List<String> Users = new List<String>();
+            //List<String> Users = new List<String>();
+            Dictionary<int, string> Doctors = new Dictionary<int, string>();
             using (MySqlConnection conn = DatabaseConnection.Connection())
             {
                 try
                 {
                     conn.Open();
-                    using (MySqlCommand command = new MySqlCommand($"SELECT imie, nazwisko FROM `lekarze`", conn))
+                    using (MySqlCommand command = new MySqlCommand($"SELECT id_l, imie, nazwisko FROM `lekarze`", conn))
                     {
                         using (var dataReader = command.ExecuteReader())
                         {
                             while (dataReader.Read())
                             {
+                                int id_p = (int)dataReader["id_l"];
                                 var name = dataReader["imie"];
                                 var surname = dataReader["nazwisko"];
-                                Users.Add(name + ", " + surname);
+
+                                Doctors.Add(id_p, name + ", " + surname);
                             }
                         }
                     }
                     conn.Close();
-                    return Users.ToArray();
+                    return Doctors;
                 }
                 catch (Exception exc)
                 {
@@ -135,6 +138,7 @@ namespace Clinic
             }
             return null;
         }
+
 
     }
 }

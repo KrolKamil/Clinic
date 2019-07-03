@@ -33,6 +33,23 @@ namespace Clinic
             get { return (int)user_box.SelectedValue; }
         }
 
+        public Dictionary<int, string> Doctors
+        {
+            set
+            {
+                doctor_box.Items.Clear();
+                this.doctor_box.DataSource = new BindingSource(value, null);
+                this.doctor_box.DisplayMember = "Value";
+                this.doctor_box.ValueMember = "Key";
+            }
+        }
+
+        public int SelectedDoctor
+        {
+            get { return (int)doctor_box.SelectedValue; }
+        }
+
+
         public Register()
         {
             InitializeComponent();
