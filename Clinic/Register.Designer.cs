@@ -37,6 +37,8 @@
             this.doctor_box = new System.Windows.Forms.ListBox();
             this.back_btn = new System.Windows.Forms.Button();
             this.add_btn = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -63,7 +65,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(314, 53);
+            this.label3.Location = new System.Drawing.Point(204, 110);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 20);
             this.label3.TabIndex = 2;
@@ -73,7 +75,7 @@
             // 
             this.specialisations_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.specialisations_comboBox.FormattingEnabled = true;
-            this.specialisations_comboBox.Location = new System.Drawing.Point(257, 103);
+            this.specialisations_comboBox.Location = new System.Drawing.Point(257, 83);
             this.specialisations_comboBox.Name = "specialisations_comboBox";
             this.specialisations_comboBox.Size = new System.Drawing.Size(121, 24);
             this.specialisations_comboBox.TabIndex = 3;
@@ -82,7 +84,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(293, 83);
+            this.label4.Location = new System.Drawing.Point(293, 63);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 17);
             this.label4.TabIndex = 4;
@@ -94,7 +96,7 @@
             this.user_box.ItemHeight = 16;
             this.user_box.Location = new System.Drawing.Point(6, 130);
             this.user_box.Name = "user_box";
-            this.user_box.Size = new System.Drawing.Size(170, 260);
+            this.user_box.Size = new System.Drawing.Size(170, 372);
             this.user_box.TabIndex = 5;
             // 
             // doctor_box
@@ -103,12 +105,12 @@
             this.doctor_box.ItemHeight = 16;
             this.doctor_box.Location = new System.Drawing.Point(208, 133);
             this.doctor_box.Name = "doctor_box";
-            this.doctor_box.Size = new System.Drawing.Size(170, 260);
+            this.doctor_box.Size = new System.Drawing.Size(170, 164);
             this.doctor_box.TabIndex = 6;
             // 
             // back_btn
             // 
-            this.back_btn.Location = new System.Drawing.Point(6, 405);
+            this.back_btn.Location = new System.Drawing.Point(3, 524);
             this.back_btn.Name = "back_btn";
             this.back_btn.Size = new System.Drawing.Size(75, 23);
             this.back_btn.TabIndex = 7;
@@ -118,7 +120,7 @@
             // 
             // add_btn
             // 
-            this.add_btn.Location = new System.Drawing.Point(278, 405);
+            this.add_btn.Location = new System.Drawing.Point(283, 524);
             this.add_btn.Name = "add_btn";
             this.add_btn.Size = new System.Drawing.Size(100, 23);
             this.add_btn.TabIndex = 8;
@@ -126,10 +128,31 @@
             this.add_btn.UseVisualStyleBackColor = true;
             this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(208, 338);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(170, 164);
+            this.listBox1.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(204, 315);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 20);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Data";
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.add_btn);
             this.Controls.Add(this.back_btn);
             this.Controls.Add(this.doctor_box);
@@ -140,7 +163,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Register";
-            this.Size = new System.Drawing.Size(386, 442);
+            this.Size = new System.Drawing.Size(386, 550);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,5 +180,7 @@
         private System.Windows.Forms.ListBox doctor_box;
         private System.Windows.Forms.Button back_btn;
         private System.Windows.Forms.Button add_btn;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label5;
     }
 }

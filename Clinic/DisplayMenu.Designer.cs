@@ -71,7 +71,7 @@
             this.Controls.Add(this.new_patient_btn);
             this.Controls.Add(this.title);
             this.Name = "DisplayMenu";
-            this.Size = new System.Drawing.Size(386, 442);
+            this.Size = new System.Drawing.Size(386, 550);
             this.ResumeLayout(false);
             this.PerformLayout();
 
