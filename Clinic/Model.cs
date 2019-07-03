@@ -71,28 +71,31 @@ namespace Clinic
             }
         }
 
-        public string[] GetUsers()
+        public Dictionary<int, string> GetUsers()
         {
-            List<String> Users = new List<String>();
+            //List<String> Users = new List<String>();
+            Dictionary<int, string> Users = new Dictionary<int, string>();
             using (MySqlConnection conn = DatabaseConnection.Connection())
             {
                 try
                 {
                     conn.Open();
-                    using (MySqlCommand command = new MySqlCommand($"SELECT imie, nazwisko FROM `pacjenci`", conn))
+                    using (MySqlCommand command = new MySqlCommand($"SELECT id_p, imie, nazwisko FROM `pacjenci`", conn))
                     {
                         using (var dataReader = command.ExecuteReader())
                         {
                             while (dataReader.Read())
                             {
+                                int id_p = (int)dataReader["id_p"];
                                 var name = dataReader["imie"];
                                 var surname = dataReader["nazwisko"];
-                                Users.Add(name + ", " + surname);
+
+                                Users.Add(id_p, name + ", " + surname);
                             }
                         }
                     }
                     conn.Close();
-                    return Users.ToArray();
+                    return Users;
                 }
                 catch (Exception exc)
                 {

@@ -18,21 +18,19 @@ namespace Clinic
         public event Action ConfirmClicked;
 
 
-        public string[] Users
+        public Dictionary<int, string> Users
         {
             set
             {
-                if(value != null)
-                {
-                    foreach (var d in value)
-                        user_box.Items.Add(d);
-                }
+                this.user_box.DataSource = new BindingSource(value, null);
+                this.user_box.DisplayMember = "Value";
+                this.user_box.ValueMember = "Key";
             }
         }
 
-        public string SelectedUser
+        public int SelectedUser
         {
-            get { return user_box.GetItemText(user_box.SelectedItem); }
+            get { return (int)user_box.SelectedValue; }
         }
 
         public Register()

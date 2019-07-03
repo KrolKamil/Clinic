@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Clinic
 {
@@ -21,6 +22,12 @@ namespace Clinic
             this.LoadUsers();
 
             this.register.ReturnBtnClicked += BackToMenu;
+            this.register.ConfirmClicked += Test;
+        }
+
+        public void Test()
+        {
+            Debug.WriteLine(this.register.SelectedUser);
         }
 
         public void LoadUsers()
