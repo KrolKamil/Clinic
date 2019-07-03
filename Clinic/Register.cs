@@ -60,9 +60,12 @@ namespace Clinic
                 {
                     this.doctor_box.DataSource = null;
                 }
-                this.doctor_box.DataSource = new BindingSource(value, null);
-                this.doctor_box.DisplayMember = "Value";
-                this.doctor_box.ValueMember = "Key";
+                else
+                {
+                    this.doctor_box.DataSource = new BindingSource(value, null);
+                    this.doctor_box.DisplayMember = "Value";
+                    this.doctor_box.ValueMember = "Key";
+                }
             }
         }
 
