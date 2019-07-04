@@ -38,7 +38,14 @@ namespace Clinic
 
         public void LoadDoctorDates()
         {
-            this.register.Dates = this.model.GetDoctorAvailableDates(this.register.SelectedDoctor);
+            if(this.register.SelectedDoctor != 0)
+            {
+                this.register.Dates = this.model.GetDoctorAvailableDates(this.register.SelectedDoctor);
+            }
+            else
+            {
+                this.register.Dates = null;
+            }
         }
 
         public void LoadDates()

@@ -219,13 +219,14 @@ namespace Clinic
 
         public void RegisterUser(IRegister register, IView view)
         {
-            int userId = register.SelectedUser;
-            int doctorId = register.SelectedDoctor;
-            DateTime visitDate = (DateTime)register.SelectedDate;
-            var formatForMySql = visitDate.ToString("yyyy-MM-dd HH:mm:ss");
-            //DateTime visitDate = DateTime.Now;
-            if (visitDate != null)
+            if (register.SelectedDate != null)
             {
+                int userId = register.SelectedUser;
+                int doctorId = register.SelectedDoctor;
+
+                DateTime visitDate = (DateTime)register.SelectedDate;
+                var formatForMySql = visitDate.ToString("yyyy-MM-dd HH:mm:ss");
+                //DateTime visitDate = DateTime.Now;
                 using (MySqlConnection conn = DatabaseConnection.Connection())
                 {
                     try

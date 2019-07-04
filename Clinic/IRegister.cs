@@ -23,6 +23,6 @@ namespace Clinic
         int SelectedSpecialisation { get; }
 
         List<DateTime> Dates { set; }
-        DateTime SelectedDate { get; }
+        DateTime? SelectedDate { get; }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Clinic
 {
@@ -20,11 +21,11 @@ namespace Clinic
             }
         }
 
-        public DateTime SelectedDate
+        public DateTime? SelectedDate
         {
             get
             {
-                return (DateTime)this.date_box.SelectedItem;
+                return (DateTime?)this.date_box.SelectedItem;
             }
         }
 
@@ -88,7 +89,14 @@ namespace Clinic
 
         public int SelectedDoctor
         {
-            get { return (int)doctor_box.SelectedValue; }
+            get
+            {
+                Debug.WriteLine(doctor_box.SelectedItem);
+                Debug.WriteLine(doctor_box.SelectedValue);
+                if (doctor_box.SelectedValue == null)
+                    return 0;
+                return (int)doctor_box.SelectedValue;
+            }
         }
 
 
