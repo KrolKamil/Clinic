@@ -32,7 +32,7 @@
             this.doctor_box = new System.Windows.Forms.ListBox();
             this.doctor_spec_box = new System.Windows.Forms.ListBox();
             this.all_spec_box = new System.Windows.Forms.ListBox();
-            this.free_rooms_box = new System.Windows.Forms.ListBox();
+            this.available_room_box = new System.Windows.Forms.ListBox();
             this.doctor_room_box = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -68,6 +68,7 @@
             this.doctor_box.Name = "doctor_box";
             this.doctor_box.Size = new System.Drawing.Size(282, 340);
             this.doctor_box.TabIndex = 6;
+            this.doctor_box.SelectedIndexChanged += new System.EventHandler(this.doctor_box_SelectedIndexChanged);
             // 
             // doctor_spec_box
             // 
@@ -87,14 +88,14 @@
             this.all_spec_box.Size = new System.Drawing.Size(99, 180);
             this.all_spec_box.TabIndex = 9;
             // 
-            // free_rooms_box
+            // available_room_box
             // 
-            this.free_rooms_box.FormattingEnabled = true;
-            this.free_rooms_box.ItemHeight = 16;
-            this.free_rooms_box.Location = new System.Drawing.Point(291, 461);
-            this.free_rooms_box.Name = "free_rooms_box";
-            this.free_rooms_box.Size = new System.Drawing.Size(203, 180);
-            this.free_rooms_box.TabIndex = 10;
+            this.available_room_box.FormattingEnabled = true;
+            this.available_room_box.ItemHeight = 16;
+            this.available_room_box.Location = new System.Drawing.Point(291, 461);
+            this.available_room_box.Name = "available_room_box";
+            this.available_room_box.Size = new System.Drawing.Size(203, 180);
+            this.available_room_box.TabIndex = 10;
             // 
             // doctor_room_box
             // 
@@ -209,7 +210,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(358, 438);
+            this.label8.Location = new System.Drawing.Point(287, 438);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(136, 20);
             this.label8.TabIndex = 23;
@@ -253,7 +254,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.doctor_room_box);
-            this.Controls.Add(this.free_rooms_box);
+            this.Controls.Add(this.available_room_box);
             this.Controls.Add(this.all_spec_box);
             this.Controls.Add(this.doctor_spec_box);
             this.Controls.Add(this.doctor_box);
@@ -271,7 +272,7 @@
         private System.Windows.Forms.ListBox doctor_box;
         private System.Windows.Forms.ListBox doctor_spec_box;
         private System.Windows.Forms.ListBox all_spec_box;
-        private System.Windows.Forms.ListBox free_rooms_box;
+        private System.Windows.Forms.ListBox available_room_box;
         private System.Windows.Forms.ListBox doctor_room_box;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

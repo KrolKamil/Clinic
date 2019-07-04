@@ -16,6 +16,7 @@ namespace Clinic
 
         public event Action ReturnBtnClicked;
         public event Action AddDoctorBtnClicked;
+        public event Action DoctorSelected;
 
         string IDoctor.UserName
         {
@@ -90,6 +91,33 @@ namespace Clinic
             }
         }
 
+        public Dictionary<int, string> Rooms
+        {
+            set
+            {
+                if (value.Count == 0)
+                {
+                    this.available_room_box.DataSource = null;
+                }
+                else
+                {
+                    this.available_room_box.DataSource = new BindingSource(value, null);
+                    this.available_room_box.DisplayMember = "Value";
+                    this.available_room_box.ValueMember = "Key";
+                }
+            }
+        }
+
+        public int SelectedRoom
+        {
+            get
+            {
+                if (available_room_box.SelectedValue == null)
+                    return 0;
+                return (int)available_room_box.SelectedValue;
+            }
+        }
+
         private Doctor()
         {
             InitializeComponent();
@@ -108,6 +136,14 @@ namespace Clinic
             if(AddDoctorBtnClicked != null)
             {
                 AddDoctorBtnClicked();
+            }
+        }
+
+        private void doctor_box_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(DoctorSelected != null)
+            {
+                DoctorSelected();
             }
         }
     }

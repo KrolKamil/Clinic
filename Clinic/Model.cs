@@ -126,6 +126,38 @@ namespace Clinic
             }
         }
 
+        public Dictionary<int, string> GetRooms()
+        {
+            Dictionary<int, string> Rooms = new Dictionary<int, string>();
+            using (MySqlConnection conn = DatabaseConnection.Connection())
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand command = new MySqlCommand($"SELECT id_g, nazwa FROM `gabinety` WHERE id_l IS NULL", conn))
+                    {
+                        using (var dataReader = command.ExecuteReader())
+                        {
+                            while (dataReader.Read())
+                            {
+                                int id_p = (int)dataReader["id_g"];
+                                string room = (string)dataReader["nazwa"];
+
+                                Rooms.Add(id_p, room);
+                            }
+                        }
+                    }
+                    conn.Close();
+                    return Rooms;
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine("ERROR: " + exc.Message);
+                }
+            }
+            return null;
+        }
+
         public Dictionary<int, string> GetUsers()
         {
             //List<String> Users = new List<String>();
