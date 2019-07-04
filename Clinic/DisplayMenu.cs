@@ -44,5 +44,10 @@ namespace Clinic
                 RegisterBtnClicked();
             }
         }
+
+        private void show_register_btn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

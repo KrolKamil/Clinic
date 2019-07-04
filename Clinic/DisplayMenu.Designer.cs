@@ -31,6 +31,7 @@
             this.title = new System.Windows.Forms.Label();
             this.new_patient_btn = new System.Windows.Forms.Button();
             this.patient_registration_btn = new System.Windows.Forms.Button();
+            this.show_register_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // title
@@ -63,10 +64,21 @@
             this.patient_registration_btn.UseVisualStyleBackColor = true;
             this.patient_registration_btn.Click += new System.EventHandler(this.patient_registration_btn_Click);
             // 
+            // show_register_btn
+            // 
+            this.show_register_btn.Location = new System.Drawing.Point(3, 170);
+            this.show_register_btn.Name = "show_register_btn";
+            this.show_register_btn.Size = new System.Drawing.Size(380, 37);
+            this.show_register_btn.TabIndex = 3;
+            this.show_register_btn.Text = "Pokaż Rejestracje";
+            this.show_register_btn.UseVisualStyleBackColor = true;
+            this.show_register_btn.Click += new System.EventHandler(this.show_register_btn_Click);
+            // 
             // DisplayMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.show_register_btn);
             this.Controls.Add(this.patient_registration_btn);
             this.Controls.Add(this.new_patient_btn);
             this.Controls.Add(this.title);
@@ -82,5 +94,6 @@
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.Button new_patient_btn;
         private System.Windows.Forms.Button patient_registration_btn;
+        private System.Windows.Forms.Button show_register_btn;
     }
 }
