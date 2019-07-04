@@ -205,6 +205,7 @@
             this.add_spec_btn.TabIndex = 22;
             this.add_spec_btn.Text = "Dodaj";
             this.add_spec_btn.UseVisualStyleBackColor = true;
+            this.add_spec_btn.Click += new System.EventHandler(this.add_spec_btn_Click);
             // 
             // label8
             // 

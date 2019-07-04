@@ -17,6 +17,7 @@ namespace Clinic
         public event Action ReturnBtnClicked;
         public event Action AddDoctorBtnClicked;
         public event Action DoctorSelected;
+        public event Action AddDoctorSpecialisationBtnClicked;
 
         string IDoctor.UserName
         {
@@ -199,6 +200,14 @@ namespace Clinic
             if(DoctorSelected != null)
             {
                 DoctorSelected();
+            }
+        }
+
+        private void add_spec_btn_Click(object sender, EventArgs e)
+        {
+            if(AddDoctorSpecialisationBtnClicked != null)
+            {
+                AddDoctorSpecialisationBtnClicked();
             }
         }
     }

@@ -21,10 +21,17 @@ namespace Clinic
             LoadDoctors();
             LoadSpecialisations();
             LoadRooms();
+            LoadSpecsAndRoom();
 
             this.doctor.ReturnBtnClicked += BackToMenu;
             this.doctor.AddDoctorBtnClicked += AddDoctor;
             this.doctor.DoctorSelected += LoadSpecsAndRoom;
+            this.doctor.AddDoctorSpecialisationBtnClicked += AddSpecialisationForDoctor;
+        }
+
+        private void AddSpecialisationForDoctor()
+        {
+            this.model.AddSpecialisationForDoctor(this.doctor);
         }
 
         private void LoadSpecsAndRoom()

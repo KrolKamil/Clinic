@@ -60,7 +60,40 @@ namespace Clinic
             }
             Doctor.GetInstance.BringToFront();
         }
-        
+
+        public void AddSpecialisationForDoctor(IDoctor doctor)
+        {
+            int doctorId = doctor.SelectedDoctor;
+            int specId = doctor.SelectedSpecialisation;
+
+            Dictionary<int, string> doctorSpecs = this.GetDoctorSpecialisations(doctorId);
+
+
+            if (!doctorSpecs.ContainsKey(specId))
+            {
+
+                using (MySqlConnection conn = DatabaseConnection.Connection())
+                {
+                    try
+                    {
+                        conn.Open();
+                        using (MySqlCommand command = new MySqlCommand($"INSERT INTO `posiadaja` VALUES('{doctorId}', '{specId}')", conn))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+
+                        doctor.DoctorSpecialisations = this.GetDoctorSpecialisations(doctorId);
+
+                        conn.Close();
+                    }
+                    catch (Exception exc)
+                    {
+                        Console.WriteLine("ERROR: " + exc.Message);
+                    }
+                }
+            }
+        }
+
         public void AddDoctorToDatabase(IDoctor doctor)
         {
             string name = doctor.UserName;
