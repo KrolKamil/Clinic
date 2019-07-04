@@ -25,11 +25,13 @@ namespace Clinic
             IUser user = User.GetInstance;
             IRegister register = Register.GetInstance;
             IRegisteredUsers registeredUsers = RegisteredUsers.GetInstance;
+            IDoctor doctor = Doctor.GetInstance;
 
+            Presenter presenter = new Presenter(view, model, displayMenu);
             RegisterPresenter RegisterPresenter = new RegisterPresenter(view, model, register);
             UserPresenter UserPresenter = new UserPresenter(view, model, user);
             RegisteredUsersPresenter RegisteredUsersPresenter = new RegisteredUsersPresenter(view, model, registeredUsers);
-            Presenter presenter = new Presenter(view, model, displayMenu);
+            DoctorPresenter DoctorPresenter = new DoctorPresenter(view, model, doctor);
 
             Debug.WriteLine(DateTime.Now);
 

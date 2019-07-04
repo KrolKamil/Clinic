@@ -29,6 +29,12 @@ namespace Clinic
             this.displayMenu.NewPatientBtnClicked += ShowUserCaller;
             this.displayMenu.RegisterBtnClicked += ShowRegisterCaller;
             this.displayMenu.ShowRegisterBtnClicked += ShowRegisteredUsersCaller;
+            this.displayMenu.DoctorBtnClicked += ShowDoctorCaller;
+        }
+
+        private void ShowDoctorCaller()
+        {
+            model.ShowDoctor(this.view.FormControl);
         }
 
         private void ShowRegisterCaller()

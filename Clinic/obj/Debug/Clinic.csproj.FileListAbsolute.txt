@@ -18,3 +18,4 @@ C:\Users\Kamil\Desktop\Projekt\Clinic\Clinic\obj\Debug\Clinic.User.resources
 C:\Users\Kamil\Desktop\Projekt\Clinic\Clinic\obj\Debug\Clinic.DisplayMenu.resources
 C:\Users\Kamil\Desktop\Projekt\Clinic\Clinic\obj\Debug\Clinic.Register.resources
 C:\Users\Kamil\Desktop\Projekt\Clinic\Clinic\obj\Debug\Clinic.RegisteredUsers.resources
+C:\Users\Kamil\Desktop\Projekt\Clinic\Clinic\obj\Debug\Clinic.Doctor.resources

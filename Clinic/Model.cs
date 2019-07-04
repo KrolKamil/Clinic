@@ -51,6 +51,47 @@ namespace Clinic
             RegisteredUsers.GetInstance.BringToFront();
         }
 
+        public void ShowDoctor(Control.ControlCollection FormControls)
+        {
+            if (!FormControls.Contains(Doctor.GetInstance))
+            {
+                FormControls.Add(Doctor.GetInstance);
+                Doctor.GetInstance.Dock = DockStyle.Fill;
+            }
+            Doctor.GetInstance.BringToFront();
+        }
+
+        
+        public void AddDoctorToDatabase(IDoctor doctor)
+        {
+            string name = doctor.UserName;
+            string surname = doctor.UserSurname;
+
+            using (MySqlConnection conn = DatabaseConnection.Connection())
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand command = new MySqlCommand($"INSERT INTO `lekarze` VALUES('', '{name}', '{surname}')", conn))
+                    {
+                        command.ExecuteNonQuery();
+                        doctor.UserName = "";
+                        doctor.UserSurname = "";
+                    }
+
+                    doctor.Doctors = this.GetDoctors();
+                    Register RG = Register.GetInstance;
+                    RG.Doctors = this.GetDoctors();
+
+                    conn.Close();
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine("ERROR: " + exc.Message);
+                }
+            }
+        }
+
         public void AddUserToDatabase(IUser user, Control.ControlCollection FormControls)
         {
             String name = user.UserName;

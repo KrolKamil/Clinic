@@ -11,5 +11,6 @@ namespace Clinic
         event Action NewPatientBtnClicked;
         event Action RegisterBtnClicked;
         event Action ShowRegisterBtnClicked;
+        event Action DoctorBtnClicked;
     }
 }

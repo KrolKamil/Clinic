@@ -32,6 +32,7 @@
             this.new_patient_btn = new System.Windows.Forms.Button();
             this.patient_registration_btn = new System.Windows.Forms.Button();
             this.show_register_btn = new System.Windows.Forms.Button();
+            this.show_doctor_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // title
@@ -74,10 +75,21 @@
             this.show_register_btn.UseVisualStyleBackColor = true;
             this.show_register_btn.Click += new System.EventHandler(this.show_register_btn_Click);
             // 
+            // show_doctor_btn
+            // 
+            this.show_doctor_btn.Location = new System.Drawing.Point(3, 363);
+            this.show_doctor_btn.Name = "show_doctor_btn";
+            this.show_doctor_btn.Size = new System.Drawing.Size(504, 65);
+            this.show_doctor_btn.TabIndex = 4;
+            this.show_doctor_btn.Text = "Zarządzaj Lekarzem";
+            this.show_doctor_btn.UseVisualStyleBackColor = true;
+            this.show_doctor_btn.Click += new System.EventHandler(this.show_doctor_btn_Click);
+            // 
             // DisplayMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.show_doctor_btn);
             this.Controls.Add(this.show_register_btn);
             this.Controls.Add(this.patient_registration_btn);
             this.Controls.Add(this.new_patient_btn);
@@ -95,5 +107,6 @@
         private System.Windows.Forms.Button new_patient_btn;
         private System.Windows.Forms.Button patient_registration_btn;
         private System.Windows.Forms.Button show_register_btn;
+        private System.Windows.Forms.Button show_doctor_btn;
     }
 }
