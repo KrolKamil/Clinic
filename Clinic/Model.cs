@@ -60,7 +60,6 @@ namespace Clinic
             }
             Doctor.GetInstance.BringToFront();
         }
-
         
         public void AddDoctorToDatabase(IDoctor doctor)
         {
@@ -124,6 +123,78 @@ namespace Clinic
                     Console.WriteLine("ERROR: " + exc.Message);
                 }
             }
+        }
+
+        
+
+        public Dictionary<int, string> GetDoctorRoom(int doctor_id)
+        {
+            if (doctor_id != 0)
+            {
+                Dictionary<int, string> room = new Dictionary<int, string>();
+                using (MySqlConnection conn = DatabaseConnection.Connection())
+                {
+                    try
+                    {
+                        conn.Open();
+                        using (MySqlCommand command = new MySqlCommand($"SELECT gabinety.id_g, gabinety.nazwa FROM `gabinety` JOIN `lekarze` on lekarze.id_l = gabinety.id_l WHERE lekarze.id_l = {doctor_id};", conn))
+                        {
+                            using (var dataReader = command.ExecuteReader())
+                            {
+                                while (dataReader.Read())
+                                {
+                                    int id_g = (int)dataReader[0];
+                                    string name = (string)dataReader[1];
+
+                                    room.Add(id_g, name);
+                                }
+                            }
+                        }
+                        conn.Close();
+                        return room;
+                    }
+                    catch (Exception exc)
+                    {
+                        Console.WriteLine("ERROR: " + exc.Message);
+                    }
+                }
+            }
+            return null;
+        }
+
+        public Dictionary<int, string> GetDoctorSpecialisations(int doctor_id)
+        {
+            if(doctor_id != 0)
+            {
+                Dictionary<int, string> specs = new Dictionary<int, string>();
+                using (MySqlConnection conn = DatabaseConnection.Connection())
+                {
+                    try
+                    {
+                        conn.Open();
+                        using (MySqlCommand command = new MySqlCommand($"SELECT specjalizacje.id_s, specjalizacje.nazwa FROM `lekarze` JOIN `posiadaja` ON lekarze.id_l = posiadaja.id_l JOIN `specjalizacje` ON specjalizacje.id_s = posiadaja.id_s WHERE lekarze.id_l = {doctor_id};", conn))
+                        {
+                            using (var dataReader = command.ExecuteReader())
+                            {
+                                while (dataReader.Read())
+                                {
+                                    int id_s = (int)dataReader[0];
+                                    string spec = (string)dataReader[1];
+
+                                    specs.Add(id_s, spec);
+                                }
+                            }
+                        }
+                        conn.Close();
+                        return specs;
+                    }
+                    catch (Exception exc)
+                    {
+                        Console.WriteLine("ERROR: " + exc.Message);
+                    }
+                }
+            }
+            return null;
         }
 
         public Dictionary<int, string> GetRooms()

@@ -12,6 +12,12 @@ namespace Clinic
         event Action AddDoctorBtnClicked;
         event Action DoctorSelected;
 
+        Dictionary<int, string> DoctorSpecialisations { set; }
+        int SelectedDoctorSpecialisation { get; }
+
+        Dictionary<int, string> DoctorRoom { set; }
+        int DoctorAssignedRoom { get; }
+
         Dictionary<int, string> Doctors { set; }
         int SelectedDoctor { get; }
 

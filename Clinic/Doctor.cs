@@ -37,6 +37,61 @@ namespace Clinic
             }
         }
 
+        public Dictionary<int, string> DoctorRoom
+        {
+            set
+            {
+                if ((value == null) || (value.Count == 0))
+                {
+                    this.doctor_room_box.DataSource = null;
+                }
+                else
+                {
+                    this.doctor_room_box.DataSource = new BindingSource(value, null);
+                    this.doctor_room_box.DisplayMember = "Value";
+                    this.doctor_room_box.ValueMember = "Key";
+                }
+            }
+        }
+
+        public int DoctorAssignedRoom
+        {
+            get
+            {
+                if (doctor_room_box.SelectedValue == null)
+                    return 0;
+                return (int)doctor_room_box.SelectedValue;
+            }
+        }
+
+        public Dictionary<int, string> DoctorSpecialisations
+        {
+            set
+            {
+                if ((value == null) || (value.Count == 0))
+                {
+                    this.doctor_spec_box.DataSource = null;
+                }
+                else
+                {
+                    this.doctor_spec_box.DataSource = new BindingSource(value, null);
+                    this.doctor_spec_box.DisplayMember = "Value";
+                    this.doctor_spec_box.ValueMember = "Key";
+                }
+            }
+        }
+
+        public int SelectedDoctorSpecialisation
+        {
+            get
+            {
+                if (doctor_spec_box.SelectedValue == null)
+                    return 0;
+                return (int)doctor_spec_box.SelectedValue;
+            }
+        }
+
+
         public Dictionary<int, string> Doctors
         {
             set
