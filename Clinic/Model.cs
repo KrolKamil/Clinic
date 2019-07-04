@@ -41,6 +41,16 @@ namespace Clinic
             User.GetInstance.BringToFront();
         }
 
+        public void ShowRegisteredUsers(Control.ControlCollection FormControls)
+        {
+            if (!FormControls.Contains(RegisteredUsers.GetInstance))
+            {
+                FormControls.Add(RegisteredUsers.GetInstance);
+                RegisteredUsers.GetInstance.Dock = DockStyle.Fill;
+            }
+            RegisteredUsers.GetInstance.BringToFront();
+        }
+
         public void AddUserToDatabase(IUser user, Control.ControlCollection FormControls)
         {
             String name = user.UserName;
@@ -328,6 +338,46 @@ namespace Clinic
         public DateTime SetValidDate(DateTime input)
         {
            return new DateTime(input.Year, input.Month, input.Day, input.Hour, input.Minute, 0).AddMinutes(input.Minute % 30 == 0 ? 0 : 30 - input.Minute % 30);
+        }
+
+        public List<string> GetRegistered()
+        {
+            List<string> registered = new List<string>();
+
+            using (MySqlConnection conn = DatabaseConnection.Connection())
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand command = new MySqlCommand($"SELECT pacjenci.imie, pacjenci.nazwisko, lekarze.imie, lekarze.nazwisko, umowienia.data FROM pacjenci JOIN umowienia ON pacjenci.id_p = umowienia.id_p JOIN lekarze ON lekarze.id_l = umowienia.id_l WHERE umowienia.data > NOW(); ", conn))
+                    {
+                        using (var dataReader = command.ExecuteReader())
+                        {
+                            while (dataReader.Read())
+                            {
+                                string userName = (string)dataReader[0];
+                                string userSurname = (string)dataReader[1];
+
+                                string doctorName = (string)dataReader[2];
+                                string doctorSurname = (string)dataReader[3];
+
+                                DateTime date = (DateTime)dataReader[4];
+
+                                string record = $"{userName} {userSurname} do {doctorName} {doctorSurname} na {date}";
+
+                                registered.Add(record);
+                            }
+                        }
+                    }
+                    conn.Close();
+                    return registered;
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine("ERROR: " + exc.Message);
+                }
+            }
+            return null;
         }
 
     }

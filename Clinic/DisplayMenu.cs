@@ -14,6 +14,7 @@ namespace Clinic
     {
         public event Action NewPatientBtnClicked;
         public event Action RegisterBtnClicked;
+        public event Action ShowRegisterBtnClicked;
 
         private static DisplayMenu instance;
         public static DisplayMenu GetInstance
@@ -47,6 +48,10 @@ namespace Clinic
 
         private void show_register_btn_Click(object sender, EventArgs e)
         {
+            if(ShowRegisterBtnClicked !=null)
+            {
+                ShowRegisterBtnClicked();
+            }
 
         }
     }

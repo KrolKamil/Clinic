@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="IDisplayMenu.cs" />
     <Compile Include="IRegister.cs" />
+    <Compile Include="IRegisteredUsers.cs" />
     <Compile Include="IUser.cs" />
     <Compile Include="IView.cs" />
     <Compile Include="DisplayMenu.cs">
@@ -80,6 +81,13 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegisteredUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RegisteredUsers.Designer.cs">
+      <DependentUpon>RegisteredUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegisteredUsersPresenter.cs" />
     <Compile Include="RegisterPresenter.cs" />
     <Compile Include="User.cs">
       <SubType>UserControl</SubType>
@@ -109,6 +117,9 @@
     </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisteredUsers.resx">
+      <DependentUpon>RegisteredUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User.resx">
       <DependentUpon>User.cs</DependentUpon>
