@@ -45,7 +45,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(2, 22);
+            this.label1.Location = new System.Drawing.Point(76, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(367, 38);
             this.label1.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             // back_btn
             // 
-            this.back_btn.Location = new System.Drawing.Point(5, 524);
+            this.back_btn.Location = new System.Drawing.Point(3, 674);
             this.back_btn.Name = "back_btn";
             this.back_btn.Size = new System.Drawing.Size(75, 23);
             this.back_btn.TabIndex = 1;
@@ -64,7 +64,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 114);
+            this.label2.Location = new System.Drawing.Point(45, 131);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 17);
             this.label2.TabIndex = 2;
@@ -73,7 +73,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 190);
+            this.label3.Location = new System.Drawing.Point(45, 275);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 17);
             this.label3.TabIndex = 3;
@@ -82,7 +82,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(46, 276);
+            this.label4.Location = new System.Drawing.Point(45, 407);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 17);
             this.label4.TabIndex = 4;
@@ -91,7 +91,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(47, 377);
+            this.label5.Location = new System.Drawing.Point(47, 536);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 17);
             this.label5.TabIndex = 5;
@@ -99,35 +99,35 @@
             // 
             // name_input
             // 
-            this.name_input.Location = new System.Drawing.Point(48, 135);
+            this.name_input.Location = new System.Drawing.Point(48, 152);
             this.name_input.Name = "name_input";
-            this.name_input.Size = new System.Drawing.Size(237, 22);
+            this.name_input.Size = new System.Drawing.Size(421, 22);
             this.name_input.TabIndex = 6;
             // 
             // surname_input
             // 
-            this.surname_input.Location = new System.Drawing.Point(48, 210);
+            this.surname_input.Location = new System.Drawing.Point(48, 295);
             this.surname_input.Name = "surname_input";
-            this.surname_input.Size = new System.Drawing.Size(237, 22);
+            this.surname_input.Size = new System.Drawing.Size(421, 22);
             this.surname_input.TabIndex = 7;
             // 
             // pesel_input
             // 
-            this.pesel_input.Location = new System.Drawing.Point(48, 311);
+            this.pesel_input.Location = new System.Drawing.Point(48, 427);
             this.pesel_input.Name = "pesel_input";
-            this.pesel_input.Size = new System.Drawing.Size(237, 22);
+            this.pesel_input.Size = new System.Drawing.Size(421, 22);
             this.pesel_input.TabIndex = 8;
             // 
             // telephone_input
             // 
-            this.telephone_input.Location = new System.Drawing.Point(48, 397);
+            this.telephone_input.Location = new System.Drawing.Point(48, 556);
             this.telephone_input.Name = "telephone_input";
-            this.telephone_input.Size = new System.Drawing.Size(237, 22);
+            this.telephone_input.Size = new System.Drawing.Size(421, 22);
             this.telephone_input.TabIndex = 9;
             // 
             // add_btn
             // 
-            this.add_btn.Location = new System.Drawing.Point(311, 524);
+            this.add_btn.Location = new System.Drawing.Point(432, 674);
             this.add_btn.Name = "add_btn";
             this.add_btn.Size = new System.Drawing.Size(75, 23);
             this.add_btn.TabIndex = 10;
@@ -151,7 +151,7 @@
             this.Controls.Add(this.back_btn);
             this.Controls.Add(this.label1);
             this.Name = "User";
-            this.Size = new System.Drawing.Size(386, 550);
+            this.Size = new System.Drawing.Size(510, 700);
             this.ResumeLayout(false);
             this.PerformLayout();
 

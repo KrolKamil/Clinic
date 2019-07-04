@@ -46,6 +46,7 @@
             // back_btn
             // 
             this.back_btn.Location = new System.Drawing.Point(3, 524);
+            this.back_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.back_btn.Name = "back_btn";
             this.back_btn.Size = new System.Drawing.Size(75, 23);
             this.back_btn.TabIndex = 8;
@@ -58,6 +59,7 @@
             this.register_box.FormattingEnabled = true;
             this.register_box.ItemHeight = 16;
             this.register_box.Location = new System.Drawing.Point(17, 41);
+            this.register_box.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.register_box.Name = "register_box";
             this.register_box.Size = new System.Drawing.Size(352, 468);
             this.register_box.TabIndex = 9;
@@ -69,8 +71,10 @@
             this.Controls.Add(this.register_box);
             this.Controls.Add(this.back_btn);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "RegisteredUsers";
-            this.Size = new System.Drawing.Size(386, 550);
+            this.Size = new System.Drawing.Size(387, 550);
             this.ResumeLayout(false);
             this.PerformLayout();
 
