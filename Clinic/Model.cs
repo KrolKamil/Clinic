@@ -72,6 +72,10 @@ namespace Clinic
                         user.UserTelephone = "";
                         this.ShowDispayMenu(FormControls);
                     }
+
+                    Register RG = Register.GetInstance;
+                    RG.Users = this.GetUsers();
+
                     conn.Close();
                 }
                 catch (Exception exc)
@@ -249,6 +253,10 @@ namespace Clinic
                         }
                         conn.Close();
                         register.Dates = GetDoctorAvailableDates(register.SelectedDoctor);
+
+                        RegisteredUsers RU = RegisteredUsers.GetInstance;
+                        RU.Registered = this.GetRegistered();
+
                     }
                     catch (Exception exc)
                     {
