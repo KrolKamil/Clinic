@@ -349,7 +349,7 @@ namespace Clinic
                 try
                 {
                     conn.Open();
-                    using (MySqlCommand command = new MySqlCommand($"SELECT pacjenci.imie, pacjenci.nazwisko, lekarze.imie, lekarze.nazwisko, umowienia.data FROM pacjenci JOIN umowienia ON pacjenci.id_p = umowienia.id_p JOIN lekarze ON lekarze.id_l = umowienia.id_l WHERE umowienia.data > NOW(); ", conn))
+                    using (MySqlCommand command = new MySqlCommand($"SELECT pacjenci.imie, pacjenci.nazwisko, lekarze.imie, lekarze.nazwisko, umowienia.data, gabinety.nazwa FROM pacjenci JOIN umowienia ON pacjenci.id_p = umowienia.id_p JOIN lekarze ON lekarze.id_l = umowienia.id_l JOIN gabinety on lekarze.id_l = gabinety.id_l WHERE umowienia.data > NOW(); ", conn))
                     {
                         using (var dataReader = command.ExecuteReader())
                         {
@@ -363,7 +363,9 @@ namespace Clinic
 
                                 DateTime date = (DateTime)dataReader[4];
 
-                                string record = $"{userName} {userSurname} do {doctorName} {doctorSurname} na {date}";
+                                string room = (string)dataReader[5];
+
+                                string record = $"{userName} {userSurname} do {doctorName} {doctorSurname} na {date} w {room}.";
 
                                 registered.Add(record);
                             }
