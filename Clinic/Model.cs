@@ -222,6 +222,7 @@ namespace Clinic
             int userId = register.SelectedUser;
             int doctorId = register.SelectedDoctor;
             DateTime visitDate = (DateTime)register.SelectedDate;
+            var formatForMySql = visitDate.ToString("yyyy-MM-dd HH:mm:ss");
             //DateTime visitDate = DateTime.Now;
             if (visitDate != null)
             {
@@ -230,12 +231,13 @@ namespace Clinic
                     try
                     {
                         conn.Open();
-                        using (MySqlCommand command = new MySqlCommand($"INSERT INTO `umowienia` VALUES('', '{visitDate}', '{doctorId}', '{userId}' )", conn))
+                        using (MySqlCommand command = new MySqlCommand($"INSERT INTO `umowienia` VALUES('', '{formatForMySql}', '{doctorId}', '{userId}' )", conn))
                         {
                             command.ExecuteNonQuery();
                             this.ShowDispayMenu(view.FormControl);
                         }
                         conn.Close();
+                        register.Dates = GetDoctorAvailableDates(register.SelectedDoctor);
                     }
                     catch (Exception exc)
                     {
