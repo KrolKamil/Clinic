@@ -61,6 +61,89 @@ namespace Clinic
             Doctor.GetInstance.BringToFront();
         }
 
+        public void DeleteDoctor(IDoctor doctor)
+        {
+            int doctorId = doctor.SelectedDoctor;
+
+            if (doctorId != 0)
+            {
+
+                using (MySqlConnection conn = DatabaseConnection.Connection())
+                {
+                    try
+                    {
+                        conn.Open();
+                        using (MySqlCommand command = new MySqlCommand($"DELETE FROM umowienia WHERE umowienia.id_l = {doctorId};", conn))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                        using (MySqlCommand command = new MySqlCommand($"DELETE FROM posiadaja WHERE posiadaja.id_l = {doctorId};", conn))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                        using (MySqlCommand command = new MySqlCommand($"UPDATE gabinety SET gabinety.id_l = NULL WHERE gabinety.id_l = {doctorId};", conn))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                        using (MySqlCommand command = new MySqlCommand($"DELETE FROM lekarze WHERE lekarze.id_l = {doctorId}", conn))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+
+                        doctor.Doctors = this.GetDoctors();
+                        doctor.DoctorSpecialisations = this.GetDoctorSpecialisations(doctor.SelectedDoctor);
+                        doctor.DoctorRoom = this.GetDoctorRoom(doctor.SelectedDoctor);
+                        doctor.Rooms = this.GetRooms();
+
+                        IRegister register = Register.GetInstance;
+                        register.Doctors = this.GetDoctors();
+
+                        IRegisteredUsers registeredUsers = RegisteredUsers.GetInstance;
+                        registeredUsers.Registered = this.GetRegistered();
+
+                        conn.Close();
+                    }
+                    catch (Exception exc)
+                    {
+                        Console.WriteLine("ERROR: " + exc.Message);
+                    }
+                }
+            }
+        }
+
+        public void AddRoomForDoctor(IDoctor doctor)
+        {
+            int doctorId = doctor.SelectedDoctor;
+            int roomId = doctor.SelectedRoom;
+
+            Dictionary<int, string> doctorRoom = this.GetDoctorRoom(doctorId);
+
+            if (doctorRoom.Count == 0)
+            {
+
+                using (MySqlConnection conn = DatabaseConnection.Connection())
+                {
+                    try
+                    {
+                        conn.Open();
+                        using (MySqlCommand command = new MySqlCommand($"UPDATE gabinety SET gabinety.id_l = {doctorId} WHERE gabinety.id_g = {roomId};", conn))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+
+                        doctor.DoctorRoom = this.GetDoctorRoom(doctorId);
+                        doctor.Rooms = this.GetRooms();
+
+                        conn.Close();
+                    }
+                    catch (Exception exc)
+                    {
+                        Console.WriteLine("ERROR: " + exc.Message);
+                    }
+                }
+            }
+        }
+
         public void AddSpecialisationForDoctor(IDoctor doctor)
         {
             int doctorId = doctor.SelectedDoctor;

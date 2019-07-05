@@ -186,6 +186,7 @@
             this.delete_doctor_btn.TabIndex = 20;
             this.delete_doctor_btn.Text = "Usuń";
             this.delete_doctor_btn.UseVisualStyleBackColor = true;
+            this.delete_doctor_btn.Click += new System.EventHandler(this.delete_doctor_btn_Click);
             // 
             // label2
             // 
@@ -225,6 +226,7 @@
             this.add_room_btn.TabIndex = 24;
             this.add_room_btn.Text = "Przydziel";
             this.add_room_btn.UseVisualStyleBackColor = true;
+            this.add_room_btn.Click += new System.EventHandler(this.add_room_btn_Click);
             // 
             // back_btn
             // 

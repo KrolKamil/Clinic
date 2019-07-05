@@ -27,6 +27,18 @@ namespace Clinic
             this.doctor.AddDoctorBtnClicked += AddDoctor;
             this.doctor.DoctorSelected += LoadSpecsAndRoom;
             this.doctor.AddDoctorSpecialisationBtnClicked += AddSpecialisationForDoctor;
+            this.doctor.AddRoomForDoctorBtnClicked += AddRoomForDoctor;
+            this.doctor.DeleteDoctorBtnClicked += DeleteDoctor;
+        }
+
+        private void DeleteDoctor()
+        {
+            this.model.DeleteDoctor(this.doctor);
+        }
+
+        private void AddRoomForDoctor()
+        {
+            this.model.AddRoomForDoctor(this.doctor);
         }
 
         private void AddSpecialisationForDoctor()

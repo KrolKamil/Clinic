@@ -18,6 +18,8 @@ namespace Clinic
         public event Action AddDoctorBtnClicked;
         public event Action DoctorSelected;
         public event Action AddDoctorSpecialisationBtnClicked;
+        public event Action AddRoomForDoctorBtnClicked;
+        public event Action DeleteDoctorBtnClicked;
 
         string IDoctor.UserName
         {
@@ -208,6 +210,22 @@ namespace Clinic
             if(AddDoctorSpecialisationBtnClicked != null)
             {
                 AddDoctorSpecialisationBtnClicked();
+            }
+        }
+
+        private void add_room_btn_Click(object sender, EventArgs e)
+        {
+            if(AddRoomForDoctorBtnClicked != null)
+            {
+                AddRoomForDoctorBtnClicked();
+            }
+        }
+
+        private void delete_doctor_btn_Click(object sender, EventArgs e)
+        {
+            if(DeleteDoctorBtnClicked != null)
+            {
+                DeleteDoctorBtnClicked();
             }
         }
     }
